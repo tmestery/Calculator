@@ -1,0 +1,81 @@
+// By: Tyler Mestery
+// 1/6/2025
+
+// importing the scanner, to be used to get user input
+import java.util.Scanner;
+
+// public class of the file
+public class calculator {
+
+    public static void main(String[] args) {
+
+        // while loopl
+        int i = 0;
+        while (i == 0){
+            // prints a welcome message
+            System.out.println("Welcome to the Calculator!");
+
+            Scanner reader = new Scanner(System.in); // Reading from System.in
+            System.out.println("Please select if you'd like to [a]dd, [s]ubtract, [m]ultiply, or [d]ivide: ");
+            String userChoice = reader.nextLine(); // Scans the next line of input as a string
+        
+            System.out.println("Please enter your first number: ");
+            int firstNum = reader.nextInt();
+            reader.nextLine(); // consume the leftover newline
+
+            System.out.println("Please enter your second number: ");
+            int secNum = reader.nextInt();
+            reader.nextLine(); // consume the leftover newline
+
+
+            if (userChoice.equals("a")) {
+                addition(firstNum, secNum);
+            } 
+            else if (userChoice.equals("s")) {
+                subtraction(firstNum, secNum);
+            }
+            else if (userChoice.equals("m")) {
+                multiplication(firstNum, secNum);
+            }
+            else if (userChoice.equals("d")) {
+                division(firstNum, secNum);
+            }
+            else {
+                System.out.println("Error has occured, please type a valid letter...");
+            }
+
+            // check to see if the user wants to do another calculator problem or end it:
+            System.out.println("Would you like to do another math problem and [c]ontinue, or [q]uit? ");
+            String closeOrNot = reader.nextLine(); // Scans the next line of input as a string
+            
+            if (closeOrNot.equals("c")) {
+                i = 1;
+            }
+            else {
+                // close when done
+                reader.close();
+                System.exit(0); // Terminates the program immediately
+            }
+        }
+    }
+    
+    public static void addition(int num1, int num2) {
+        int answer = (num1 + num2);
+        System.out.println(num1 + " + " + num2 + " = " + answer);
+    }
+
+    public static void subtraction(int num1, int num2) {
+        int answer = (num1 - num2);
+        System.out.println(num1 + " - " + num2 + " = " + answer);
+    }
+
+    public static void multiplication(int num1, int num2) {
+        int answer = (num1 * num2);
+        System.out.println(num1 + " * " + num2 + " = " + answer);
+    }
+
+    public static void division(int num1, int num2) {
+        int answer = (num1 / num2);
+        System.out.println(num1 + " / " + num2 + " = " + answer);
+    }
+}
